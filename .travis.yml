@@ -6,6 +6,7 @@ go:
   - "1.12"
 
 script:
+  - make
   - make build
   - docker build . -t liupeng0518/chartmuseum:v0.7.1
 

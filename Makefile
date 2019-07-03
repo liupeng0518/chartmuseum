@@ -27,7 +27,7 @@ build_windows:
 	@GOOS=windows go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/windows/amd64/chartmuseum cmd/chartmuseum/main.go  # windows
 
-build_linux: export GOARCH=mips64le
+build_linux: export GOARCH=arm64
 build_linux: export CGO_ENABLED=0
 build_linux:
 	@GOOS=linux go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \

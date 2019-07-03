@@ -6,6 +6,8 @@ go:
   - "1.12"
 
 script:
+  - mkdir /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
+  - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - make
   - make build
   - docker build . -t liupeng0518/chartmuseum:v0.7.1

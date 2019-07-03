@@ -1,0 +1,14 @@
+language:
+  - go 
+sudo: required
+services: docker
+go:
+  - "1.12"
+
+
+script:
+  - make
+  - docker build . -t liupeng0518/chartmuseum:v0.7.1
+
+after_success:
+        - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push liupeng0518/chartmuseum:v0.7.1

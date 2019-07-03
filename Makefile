@@ -20,14 +20,14 @@ endif
 	@dep ensure -v -vendor-only
 
 .PHONY: build
-build: build_linux build_mac build_windows
+build: build_linux
 
 build_windows: export GOARCH=amd64
 build_windows:
 	@GOOS=windows go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/windows/amd64/chartmuseum cmd/chartmuseum/main.go  # windows
 
-build_linux: export GOARCH=amd64
+build_linux: export GOARCH=mips64le
 build_linux: export CGO_ENABLED=0
 build_linux:
 	@GOOS=linux go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \

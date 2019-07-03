@@ -5,7 +5,6 @@ services: docker
 go:
   - "1.12"
 
-
 script:
   - make
   - docker build . -t liupeng0518/chartmuseum:v0.7.1

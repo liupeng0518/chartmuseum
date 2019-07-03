@@ -6,7 +6,7 @@ go:
   - "1.12"
 
 script:
-  - mkdir /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
+  - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - make
   - make build

@@ -4,6 +4,9 @@ sudo: required
 services: docker
 go:
   - "1.12"
+before_install:                                                                 
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
+  - dep ensure
 
 script:
   - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/

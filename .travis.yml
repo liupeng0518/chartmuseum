@@ -13,7 +13,7 @@ script:
   - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - make build
-  - tar zcvf dep.tar.gz *
+  - ls
   - docker build . -t liupeng0518/chartmuseum:v0.7.1
 
 after_success:

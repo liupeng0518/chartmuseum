@@ -1,0 +1,21 @@
+
+language:
+  - go 
+sudo: required
+services: docker
+go:
+  - "1.10"
+before_install:                                                                 
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
+  - dep ensure
+
+script:
+  - mkdir -p bin/linux/amd64/
+  - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
+  - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
+  - make build
+  - ls
+  - docker build . -t liupeng0518/chartmuseum:v0.8.1
+
+after_success:
+        - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push liupeng0518/chartmuseum:v0.8.1

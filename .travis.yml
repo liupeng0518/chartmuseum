@@ -8,8 +8,11 @@ go:
 script:
   - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
-  - make
+  - make bootstrap
+  - make testcloud
+  - make goviz
   - make build
+  - make acceptance
   - docker build . -t liupeng0518/chartmuseum:v0.7.1
 
 after_success:

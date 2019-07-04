@@ -9,6 +9,7 @@ before_install:
   - dep ensure
 
 script:
+  - mkdir -p bin/linux/amd64/
   - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - make build

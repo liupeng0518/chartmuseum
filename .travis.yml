@@ -9,7 +9,6 @@ script:
   - mkdir -p /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - cp -ar *  /home/travis/gopath/src/github.com/kubernetes-helm/chartmuseum/
   - make bootstrap
-  - make testcloud
   - make goviz
   - make build
   - make acceptance

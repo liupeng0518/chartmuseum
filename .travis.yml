@@ -3,7 +3,7 @@ language:
 sudo: required
 services: docker
 go:
-  - "1.12"
+  - "1.10"
 before_install:                                                                 
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  
   - dep ensure

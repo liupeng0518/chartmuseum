@@ -9,14 +9,14 @@ bootstrap:
 	@dep ensure -v -vendor-only
 
 .PHONY: build
-build: build-linux build-mac build-windows
+build: build-linux
 
 build-windows: export GOARCH=amd64
 build-windows:
 	@GOOS=windows go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/windows/amd64/chartmuseum cmd/chartmuseum/main.go  # windows
 
-build-linux: export GOARCH=amd64
+build-linux: export GOARCH=arm64
 build-linux: export CGO_ENABLED=0
 build-linux:
 	@GOOS=linux go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
